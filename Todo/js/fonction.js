@@ -52,6 +52,9 @@ const viewTodo = (todos) => {
     });
     //Applique les écouteurs d'évènements sur les liens de suppression
     eventslink(todos);
+
+    //Applique les écouteurs d'évènement sur les li
+    strikeOutItem();
 }
 /**
  * Applique un écouteur d'évènement sur tous les lien de suppression
@@ -87,3 +90,15 @@ console.log(index[1]);
     viewTodo(todos);
 }
 
+/**
+ *  Permet de rayer un élément de la liste
+ */
+const strikeOutItem = () => {
+
+    const item = document.querySelectorAll("li");
+    item.forEach(item => {
+        item.addEventListener("click", () => {
+            item.style.textDecoration = "line-through";         //boucle à l'intèrieure pour effectuer une action
+        });
+    })
+}
