@@ -6,17 +6,12 @@
  * Notes :
  * ---
  * Un élément ajouté à la liste devra systématiquement posséder ce code HTML :
- * <li class="list-group-item d-flex justify-content-between">
- *     An item
- *     <a href="#" id="deleteItem">
- *         <img src="imgs/trash.svg" alt="Delete item" class="icon-delete">
- *     </a>
- * </li>
+ * 
  * 
  * 
  *//*Etape #1*/
 //*Ecouter l' envoi du formulaire
-//*Récupérer la valeur du champs
+//
 //*Insérer cette valeur dans le tableau "todos"
 //*Bonus : Remettre le champs du formulaire à "zéro"
 /**
@@ -30,16 +25,43 @@
  * Appeler la fonction précédente dans l'évènement du formulaire
  * après
  */
+
 // Contiendra les éléments de notre liste à cocher
 let todos = [];
 
-todos.forEach(item)
+// Récupère le formulaire
+const form = document.querySelector("form");
 
+// Ajoute un écouteur d'évènement sur le formulaire
+form.addEventListener("submit", (event) => {
+    // Annule rechargement de page provoqué par le formulaire
+    event.preventDefault();
+    
+    // Récupère le champs texte
+    const input = document.querySelector("#element");
 
-const iconDelete = document.querySelectorAll(".icon-delete");
+    // Ajoute la valeur en fin de tableau
+    todos.push(input.value);
 
-iconDelete.addEvenListeber("click", () => {
+    // Vide le champs texte
+    input.value = "";
 
-      
+    //console.log(todos);
+    viewTodo(todos);
+    
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
